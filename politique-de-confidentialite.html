@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZTrust - Politique de Confidentialité</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --background: #0f172a;
+            --surface: rgba(255, 255, 255, 0.05);
+            --text-main: #f8fafc;
+            --text-secondary: #94a3b8;
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 4rem 10%;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--surface);
+            padding: 3rem;
+            border-radius: 1.5rem;
+            border: 1px solid var(--glass-border);
+        }
+
+        h1,
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 2rem;
+        }
+
+        p,
+        ul {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        ul {
+            padding-left: 2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 4rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            opacity: 0.6;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="index.html" class="back-link">← Retour à l'accueil</a>
+
+    <div class="container">
+        <h1>Politique de Confidentialité</h1>
+        <p><strong>Date d'entrée en vigueur :</strong> 1er mars 2026</p>
+
+        <h2>1. Avertissement Médical</h2>
+        <p>ZTrust n'est PAS un dispositif médical et ne fournit aucun conseil, diagnostic ou traitement médical.
+            L'Application est destinée uniquement au développement personnel.</p>
+
+        <h2>2. Informations Collectées</h2>
+        <p>Nous collectons les données suivantes nécessaires au fonctionnement de l'app :</p>
+        <ul>
+            <li><strong>Compte :</strong> Email et nom de profil (via Google Sign-In ou Email).</li>
+            <li><strong>Utilisation :</strong> Réponses aux évaluations d'addiction, suivis d'habitudes, séries et
+                journaux de bord.</li>
+            <li><strong>Appareil :</strong> Modèle et version du système pour le support technique.</li>
+        </ul>
+
+        <h2>3. Services Tiers</h2>
+        <p>Vos données sont sécurisées via nos partenaires :</p>
+        <ul>
+            <li>Supabase (Base de données sécurisée)</li>
+            <li>RevenueCat (Gestion des abonnements Play Store)</li>
+            <li>Google (Authentification sécurisée)</li>
+        </ul>
+
+        <h2>4. Vos Droits</h2>
+        <p>Vous pouvez supprimer votre compte et toutes vos données directement depuis les paramètres de l'application à
+            tout moment.</p>
+
+        <h2>5. Contact</h2>
+        <p>Pour toute question : fundev.ztrust@gmail.com</p>
+    </div>
+
+    <footer>© 2026 ZTrust par Yassir Lachehab.</footer>
+</body>
+
+</html>

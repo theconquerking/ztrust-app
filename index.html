@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZTrust - Reprenez le contrôle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #fbbf24;
+            --background: #0f172a;
+            --surface: rgba(255, 255, 255, 0.05);
+            --text-main: #f8fafc;
+            --text-secondary: #94a3b8;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Background Gradient */
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 80%, rgba(251, 191, 36, 0.05) 0%, transparent 40%);
+            z-index: -1;
+        }
+
+        /* Navbar */
+        nav {
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(to right, #6366f1, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        /* Hero */
+        header {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 5% 4rem;
+            gap: 4rem;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--surface);
+            border: 1px solid var(--glass-border);
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.05rem;
+        }
+
+        h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            background: var(--primary-dark);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 2rem;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Features */
+        .features {
+            padding: 6rem 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* Trust Section */
+        .trust {
+            padding: 6rem 5%;
+            text-align: center;
+            background: rgba(99, 102, 241, 0.03);
+        }
+
+        .trust-info {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .disclaimer {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 2rem;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            background: rgba(239, 68, 68, 0.05);
+            border: 1px solid rgba(239, 68, 68, 0.1);
+            display: inline-block;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 5% 2rem;
+            border-top: 1px solid var(--glass-border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .copy {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 10rem;
+            }
+            h1 { font-size: 3rem; }
+            .cta-group { justify-content: center; }
+            .hero-subtitle { margin-left: auto; margin-right: auto; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient"></div>
+
+    <nav>
+        <div class="logo">ZTrust</div>
+        <div class="nav-links">
+            <a href="mailto:fundev.ztrust@gmail.com">Support</a>
+            <a href="/politique-de-confidentialite">Vie Privée</a>
+        </div>
+    </nav>
+
+    <header>
+        <div class="hero-content">
+            <span class="badge">DISPONIBLE BIENTÔT SUR ANDROID</span>
+            <h1>Reprenez le contrôle de votre vie.</h1>
+            <p class="hero-subtitle">
+                ZTrust est le compagnon intelligent conçu pour vous aider à surmonter les addictions numériques et comportementales grâce à des plans d'action personnalisés et un suivi basé sur la science.
+            </p>
+            <div class="cta-group">
+                <a href="#" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 15.3414C17.0673 15.3414 16.6973 15.7118 16.6973 16.167C16.6973 16.6222 17.0673 16.9926 17.523 16.9926C17.9786 16.9926 18.3486 16.6222 18.3486 16.167C18.3486 15.7118 17.9786 15.3414 17.523 15.3414ZM12.0163 15.3414C11.5607 15.3414 11.1907 15.7118 11.1907 16.167C11.1907 16.6222 11.5607 16.9926 12.0163 16.9926C12.4719 16.9926 12.8419 16.6222 12.8419 16.167C12.8419 15.7118 12.4719 15.3414 12.0163 15.3414ZM6.50971 15.3414C6.05404 15.3414 5.68404 15.7118 5.68404 16.167C5.68404 16.6222 6.05404 16.9926 6.50971 16.9926C6.96537 16.9926 7.33537 16.6222 7.33537 16.167C7.33537 15.7118 6.96537 15.3414 6.50971 15.3414ZM3 2h18v14.0049C21 17.1065 20.1065 18 19.0049 18H16.1v4h-2.1v-4H10v4H7.9v-4H4.99512C3.8935 18 3 17.1065 3 16.0049V2zm16 4H5v10h14V6z"/></svg>
+                    Play Store
+                </a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://raw.githubusercontent.com/theconquerking/ztrust-assets/main/mockup.png" alt="ZTrust App Mockup" onerror="this.src='./ztrust_app_mockup.png';">
+        </div>
+    </header>
+
+    <section class="features">
+        <div class="feature-card">
+            <div class="feature-icon">🧠</div>
+            <h3>Assessment IA</h3>
+            <p>Évaluez précisément votre niveau de risque et identifiez les déclencheurs de vos addictions grâce à notre questionnaire dynamique.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Protocole d'Urgence</h3>
+            <p>Accès instantané à des techniques de respiration et des rappels puissants pour tenir bon dans les moments de forte envie.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🔥</div>
+            <h3>Streaks & Progrès</h3>
+            <p>Suivez vos séries de victoires et visualisez votre progression quotidienne pour rester motivé sur le long terme.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📓</div>
+            <h3>Journal de Réflexion</h3>
+            <p>Extériorisez vos émotions et suivez votre humeur pour comprendre les patterns psychologiques derrière vos habitudes.</p>
+        </div>
+    </section>
+
+    <section class="trust">
+        <div class="trust-info">
+            <h2>Votre vie privée est notre priorité</h2>
+            <p>Toutes vos données sont chiffrées et sécurisées. ZTrust n'est pas un dispositif médical, mais un outil conçu pour vous accompagner vers une meilleure version de vous-même.</p>
+            <div class="disclaimer">
+                ⚠️ <strong>Avertissement :</strong> ZTrust ne remplace pas une consultation médicale professionnelle. En cas d'urgence, contactez les services de santé habilités.
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo">ZTrust</div>
+        <div class="footer-links">
+            <a href="/politique-de-confidentialite">Politique de Confidentialité</a>
+            <a href="mailto:fundev.ztrust@gmail.com">Contact Support</a>
+        </div>
+        <div class="copy">© 2026 ZTrust par Yassir Lachehab. Tous droits réservés.</div>
+    </footer>
+</body>
+</html>
